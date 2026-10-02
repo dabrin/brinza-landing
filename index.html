@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brinza Solutions — Tecnología para hacer las cosas más simples</title>
+<meta name="description" content="Software studio. Diseñamos y desarrollamos software, aplicaciones y soluciones digitales. Creadores de InkSlate: reservas para tatuajes, barberías y salones.">
+<meta property="og:title" content="Brinza Solutions">
+<meta property="og:description" content="Tecnología para hacer las cosas más simples.">
+<meta property="og:image" content="assets/Brinza%20Monograma%20-%20dark.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#232323;--gold:#C9A35E;--gold-l:#E2C48A;--ink:#F3EFE7;--mut:#CFC9BE;--dim:#9C978E;--ok:#7FB58A;--line:rgba(243,239,231,.1)}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--gold);text-decoration:none}
+::selection{background:var(--gold);color:var(--bg)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:clamp(20px,5vw,48px);padding-right:clamp(20px,5vw,48px)}
+.serif{font-family:'Italiana',serif;font-weight:400}
+.eyebrow{font-size:14px;letter-spacing:.28em;color:var(--gold)}
+h1,h2,h3,p{margin:0}
+h2{font-family:'Italiana',serif;font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1.06;text-wrap:balance}
+.btn{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:400;letter-spacing:.04em;color:var(--bg);background:var(--gold);padding:16px 28px;border-radius:999px;transition:background .25s}
+.btn:hover{background:var(--gold-l);color:var(--bg)}
+.btn.ghost{background:none;color:var(--ink);border:1px solid rgba(243,239,231,.25);padding:15px 28px;transition:border-color .25s}
+.btn.ghost:hover{border-color:var(--gold)}
+header{position:sticky;top:0;z-index:10;background:rgba(35,35,35,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(243,239,231,.06)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:18px;padding-bottom:18px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:34px}
+.links{display:flex;align-items:center;gap:36px}
+.links .menu{display:flex;gap:32px;font-size:15px;letter-spacing:.04em}
+.links .menu a{color:var(--mut)}.links .menu a:hover{color:var(--ink)}
+.links .cta{font-size:14px;letter-spacing:.06em;padding:11px 22px}
+@media(max-width:860px){.links .menu{display:none}}
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(48px,6vw,96px);align-items:center;padding-top:clamp(64px,10vw,140px);padding-bottom:clamp(56px,8vw,96px)}
+.hero .copy{display:flex;flex-direction:column;gap:32px}
+.hero h1{font-family:'Italiana',serif;font-weight:400;font-size:clamp(48px,6.6vw,96px);line-height:1.02;text-wrap:balance}
+.hero p{font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:var(--mut);max-width:34em;text-wrap:pretty}
+.row{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.mark{display:flex;justify-content:center;align-items:center;position:relative;min-height:300px}
+.mark i{position:absolute;aspect-ratio:1;border-radius:50%;border:1px solid rgba(201,163,94,.18)}
+.mark i:nth-child(1){width:min(92%,480px)}.mark i:nth-child(2){width:min(70%,360px);border-color:rgba(201,163,94,.1)}
+.mark img{position:relative;width:min(48%,260px)}
+.strip{border-top:1px solid rgba(243,239,231,.08);border-bottom:1px solid rgba(243,239,231,.08)}
+.strip .wrap{padding-top:22px;padding-bottom:22px;display:flex;flex-wrap:wrap;gap:16px 48px;align-items:center;font-size:14px;letter-spacing:.12em;color:var(--dim)}
+.strip span.it{display:flex;align-items:center;gap:10px}
+.dot{width:6px;height:6px;border-radius:50%;border:1px solid var(--dim)}.dot.on{background:var(--ok);border-color:var(--ok)}
+section.pad{padding-top:clamp(80px,11vw,150px);padding-bottom:clamp(60px,8vw,100px)}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(40px,5vw,64px)}
+.head>div{display:flex;flex-direction:column;gap:18px}
+.card{border:1px solid var(--line);border-radius:28px;transition:border-color .4s}
+.card:hover{border-color:rgba(201,163,94,.35)}
+.feature{background:rgba(243,239,231,.025);padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,5vw,72px);align-items:center}
+.feature .info{display:flex;flex-direction:column;gap:26px}
+.badge{font-size:13px;font-weight:400;letter-spacing:.14em;color:var(--ok);border:1px solid rgba(127,181,138,.4);padding:7px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font-size:13px;letter-spacing:.04em;color:var(--mut);border:1px solid rgba(243,239,231,.14);padding:7px 14px;border-radius:999px}
+.stores{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.store{display:flex;align-items:center;gap:12px;color:var(--ink);background:#111;border:1px solid rgba(243,239,231,.25);border-radius:14px;padding:10px 20px 10px 16px;transition:border-color .25s,transform .25s}
+.store:hover{border-color:var(--gold);color:var(--ink);transform:translateY(-2px)}
+.store span{display:flex;flex-direction:column;font-size:19px;font-weight:400;line-height:1.1}
+.store small{font-size:11px;letter-spacing:.04em;color:var(--mut);font-weight:300}
+.phones{position:relative;display:flex;justify-content:center;align-items:flex-start;padding:0 0 clamp(20px,4vw,56px)}
+.ph{width:min(44%,260px);height:auto;display:block;border-radius:clamp(22px,3vw,34px);border:1px solid rgba(243,239,231,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.ph.p1{position:relative;z-index:1;transform:translateY(clamp(28px,5vw,64px)) rotate(-2deg);margin-right:3%}
+.ph.p2{transform:rotate(2deg);margin-left:3%}
+.soon{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px;margin-top:20px}
+.soon .card{padding:clamp(28px,3.5vw,44px);display:flex;flex-direction:column;gap:20px;min-height:300px;position:relative;overflow:hidden}
+.soon .pill{align-self:flex-start;font-size:12px;letter-spacing:.18em;color:var(--gold);border:1px solid rgba(201,163,94,.4);padding:7px 14px;border-radius:999px}
+.soon h3{margin-top:auto;font-family:'Italiana',serif;font-weight:400;font-size:clamp(40px,4vw,56px);line-height:1}
+.soon p{font-size:16px;line-height:1.6;color:var(--dim);max-width:26em}
+.soon .ghost-t{position:absolute;top:26px;right:30px;font-family:'Italiana',serif;font-size:72px;line-height:1;color:rgba(243,239,231,.06)}
+.sol{border-top:1px solid rgba(243,239,231,.08)}
+.sol .wrap{padding-top:clamp(80px,11vw,150px);padding-bottom:clamp(80px,11vw,150px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(48px,6vw,96px)}
+.sol .l{display:flex;flex-direction:column;gap:26px}
+.sol p{font-size:17px;line-height:1.65;color:var(--mut);max-width:28em;text-wrap:pretty}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));border-top:1px solid var(--line);align-content:start}
+.svc div{display:flex;align-items:baseline;gap:16px;padding:26px 4px;border-bottom:1px solid var(--line);font-size:19px;font-weight:400}
+.svc small{font-size:13px;color:var(--gold);font-variant-numeric:tabular-nums}
+.phil{border-top:1px solid rgba(243,239,231,.08)}
+.phil .in{max-width:1000px;margin:0 auto;padding:clamp(90px,12vw,170px) clamp(20px,5vw,48px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px}
+.phil h2{font-size:clamp(40px,5.4vw,76px);line-height:1.08}
+.phil p{font-size:18px;line-height:1.65;color:var(--mut);max-width:36em;text-wrap:pretty}
+.contact{padding:0 clamp(20px,5vw,48px) clamp(20px,5vw,48px)}
+.contact .box{max-width:1240px;margin:0 auto;border-radius:32px;background:var(--gold);color:var(--bg);padding:clamp(48px,8vw,110px) clamp(28px,6vw,96px);display:flex;flex-direction:column;gap:32px}
+.contact h2{font-size:clamp(38px,5vw,72px);max-width:15em}
+.contact .lead{font-size:20px;font-weight:400}
+.contact .b1{font-size:15px;font-weight:500;letter-spacing:.04em;color:var(--ink);background:var(--bg);padding:17px 30px;border-radius:999px;transition:transform .25s}
+.contact .b2{font-size:15px;font-weight:500;letter-spacing:.04em;color:var(--bg);border:1px solid var(--bg);padding:16px 30px;border-radius:999px;transition:transform .25s}
+.contact .b1:hover,.contact .b2:hover{transform:translateY(-2px)}.contact .b1:hover{color:var(--ink)}.contact .b2:hover{color:var(--bg)}
+footer{padding-top:40px;padding-bottom:56px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;font-size:14px;color:var(--dim)}
+footer .brand img{height:28px}footer .brand span{letter-spacing:.12em}
+.js [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),border-color .4s}
+.js [data-reveal].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js [data-reveal]{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top" aria-label="Brinza Solutions">
+      <img src="assets/monogram-gold.png" alt="">
+      <svg viewBox="-24 18 360 94" width="132" height="34" style="display:block;overflow:visible" aria-hidden="true"><path d="M-1,38 C-10,38 -10,42 -10,54 C-10,63 -11.5,68 -19,68 C-11.5,68 -10,73 -10,82 C-10,94 -10,98 -1,98" fill="none" stroke="#C9A35E" stroke-width="3"/><g font-family="Italiana, serif" font-size="100" fill="#F8F6F1"><text x="0" y="100">B</text><text x="52" y="100">R</text><text x="106" y="100">I</text><text x="132" y="100">N</text><text x="244" y="100">A</text></g><path d="M193,31 L241,31 M190,99.3 L242,99.3" stroke="#F8F6F1" stroke-width="3"/><polygon points="228,32 233,32 194,99 189,99" fill="#C9A35E"/><polygon points="237,32 242,32 203,99 198,99" fill="#C9A35E"/><path d="M309,38 C318,38 318,42 318,54 C318,63 319.5,68 327,68 C319.5,68 318,73 318,82 C318,94 318,98 309,98" fill="none" stroke="#C9A35E" stroke-width="3"/></svg>
+    </a>
+    <div class="links">
+      <div class="menu"><a href="#productos">Productos</a><a href="#soluciones">Soluciones</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></div>
+      <a class="btn cta" href="#contacto">Hablemos</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section id="top" class="wrap hero">
+  <div class="copy" data-reveal>
+    <div class="eyebrow">{ SOFTWARE STUDIO }</div>
+    <h1>Tecnología para hacer las cosas más simples.</h1>
+    <p>Diseñamos y desarrollamos software, aplicaciones y soluciones digitales pensadas para resolver problemas reales y simplificar la forma en que personas y negocios trabajan.</p>
+    <div class="row">
+      <a class="btn" href="#productos">Conocer nuestros productos</a>
+      <a class="btn ghost" href="#contacto">Hablemos</a>
+    </div>
+  </div>
+  <div class="mark" data-reveal><i></i><i></i><img src="assets/monogram-gold.png" alt="Monograma Brinza"></div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <span style="color:var(--gold)">// ECOSISTEMA</span>
+  <span class="it"><span class="dot on"></span><span style="color:var(--ink)">INKSLATE</span></span>
+  <span class="it"><span class="dot"></span>COACHING</span>
+  <span class="it"><span class="dot"></span>EVENTS</span>
+</div></div>
+
+<section id="productos" class="wrap pad">
+  <div class="head" data-reveal>
+    <div><div class="eyebrow">// PRODUCTOS</div><h2>Productos que estamos construyendo</h2></div>
+    <p style="max-width:24em;font-size:17px;line-height:1.6;color:var(--dim)">Construimos soluciones. Creamos productos.</p>
+  </div>
+
+  <article class="card feature" data-reveal>
+    <div class="info">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <span class="badge"><span class="dot on"></span>DISPONIBLE</span>
+        <span style="font-size:13px;letter-spacing:.12em;color:var(--dim)">by Brinza Solutions</span>
+      </div>
+      <h3 class="serif" style="font-size:clamp(52px,6vw,84px);line-height:1">InkSlate</h3>
+      <p class="serif" style="font-size:clamp(24px,2.4vw,32px);line-height:1.25;color:var(--gold)">Menos mensajes. Más reservas organizadas.</p>
+      <p style="font-size:17px;line-height:1.65;color:var(--mut);max-width:30em;text-wrap:pretty">Reservas para estudios de tatuajes, barberías, salones de belleza y profesionales que trabajan con citas. Tus clientes encuentran tu negocio y reservan; tú administras agenda, servicios, profesionales y depósitos desde un mismo lugar.</p>
+      <div class="tags"><span>Tatuajes</span><span>Barberías</span><span>Salones de belleza</span><span>Independientes</span></div>
+      <div class="stores">
+        <a class="store" href="https://apps.apple.com/cr/app/inkslate/id6795252784" target="_blank" rel="noopener" aria-label="Descargar InkSlate en el App Store"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M16.37 12.63c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.71-3.19-1.73-1.35-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.63 1.1 8.8.74 1.06 1.61 2.25 2.75 2.21 1.11-.04 1.52-.71 2.86-.71s1.71.71 2.88.69c1.19-.02 1.94-1.08 2.67-2.15.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.31-.89-2.33-3.55zM14.2 6.2c.61-.74 1.02-1.77.91-2.79-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.7-.93 2.7.98.08 1.98-.5 2.59-1.23z"/></svg><span><small>Descargar en el</small>App Store</span></a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.inkslate.app" target="_blank" rel="noopener" aria-label="Disponible en Google Play"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M3.6 2.3c-.2.2-.3.6-.3 1v17.4c0 .4.1.8.3 1l9.7-9.7z" fill="#00D7FE"/><path d="M16.5 15.2l-3.2-3.2 3.2-3.2 3.8 2.2c1.1.6 1.1 1.7 0 2.3z" fill="#FFCE00"/><path d="M13.3 12L3.6 21.7c.4.4 1 .4 1.6.1l11.3-6.6z" fill="#FF3A44"/><path d="M13.3 12l3.2-3.2L5.2 2.2c-.6-.3-1.2-.3-1.6.1z" fill="#00F076"/></svg><span><small>Disponible en</small>Google Play</span></a>
+      </div>
+    </div>
+    <div class="phones">
+      <img class="ph p1" src="assets/inkslate-1.webp" width="720" height="1565" alt="InkSlate: reserva confirmada, pendiente de depósito, con código de reserva" loading="lazy">
+      <img class="ph p2" src="assets/inkslate-2.webp" width="720" height="1565" alt="InkSlate: resumen de la reserva con estado del depósito y actividad" loading="lazy">
+    </div>
+  </article>
+
+  <div class="soon">
+    <article class="card" data-reveal><span class="pill">COMING SOON</span><h3>Coaching</h3><p>Para entrenadores y profesionales del fitness. Clientes, rutinas y seguimiento en un mismo lugar.</p><span class="ghost-t">{ }</span></article>
+    <article class="card" data-reveal><span class="pill">COMING SOON</span><h3>Events</h3><p>Para organizadores, planners y venues. Toda la operación de un evento, centralizada.</p><span class="ghost-t">//</span></article>
+  </div>
+</section>
+
+<section id="soluciones" class="sol">
+  <div class="wrap">
+    <div class="l" data-reveal>
+      <div class="eyebrow">// SOLUCIONES PERSONALIZADAS</div>
+      <h2>¿Necesitas algo diferente?</h2>
+      <p>No todos los problemas se resuelven con software existente. Analizamos tu necesidad y construimos una solución digital adaptada a tu proceso.</p>
+      <a class="btn" style="align-self:flex-start;margin-top:6px" href="https://wa.me/50661621913?text=Hola%20Brinza%2C%20quisiera%20conversar%20sobre%20una%20idea." data-wa target="_blank" rel="noopener">Cuéntanos tu idea <span>→</span></a>
+    </div>
+    <div class="svc" data-reveal>
+      <div><small>01</small>Aplicaciones web</div><div><small>02</small>Aplicaciones móviles</div><div><small>03</small>Sistemas internos</div>
+      <div><small>04</small>Automatización de procesos</div><div><small>05</small>Integraciones</div><div><small>06</small>Plataformas personalizadas</div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" class="phil">
+  <div class="in" data-reveal>
+    <div class="eyebrow">// FILOSOFÍA</div>
+    <h2>El software debería simplificar, <span style="color:var(--gold)">no complicar.</span></h2>
+    <p>Primero entendemos el problema; después construimos la tecnología. Preferimos soluciones claras, intuitivas y útiles antes que sistemas innecesariamente complejos.</p>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="box" data-reveal>
+    <h2>¿Tienes una idea que podemos convertir en una solución?</h2>
+    <p class="lead">Hablemos.</p>
+    <div class="row" style="margin:0">
+      <a class="b1" href="https://wa.me/50661621913?text=Hola%20Brinza%2C%20quisiera%20conversar%20sobre%20una%20idea." data-wa target="_blank" rel="noopener">WhatsApp</a>
+      <a class="b2" href="https://www.instagram.com/brinzasolutions" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="brand"><img src="assets/monogram-gold.png" alt=""><span>BRINZA SOLUTIONS</span></div>
+  <span>© 2026 Brinza Solutions</span>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-reveal]');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
