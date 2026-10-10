@@ -20,6 +20,7 @@
 <style>
 :root{--bg:#232323;--gold:#C9A35E;--gold-l:#E2C48A;--ink:#F3EFE7;--mut:#CFC9BE;--dim:#9C978E;--ok:#7FB58A;--line:rgba(243,239,231,.1)}
 html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:70px}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:var(--gold);text-decoration:none}
@@ -73,6 +74,17 @@ section.pad{padding-top:clamp(80px,11vw,150px);padding-bottom:clamp(60px,8vw,100
 .store:hover{border-color:var(--gold);color:var(--ink);transform:translateY(-2px)}
 .store span{display:flex;flex-direction:column;font-size:19px;font-weight:400;line-height:1.1}
 .store small{font-size:11px;letter-spacing:.04em;color:var(--mut);font-weight:300}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.work{display:flex;flex-direction:column;overflow:hidden;color:var(--ink)}
+.work:hover{color:var(--ink)}
+.work .shot{overflow:hidden;border-bottom:1px solid var(--line);aspect-ratio:8/5;background:#161616}
+.work .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.work:hover .shot img{transform:scale(1.03)}
+.work .meta{padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:12px}
+.work .tag{align-self:flex-start;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,163,94,.4);padding:6px 12px;border-radius:999px}
+.work h3{font-family:'Italiana',serif;font-weight:400;font-size:clamp(32px,3.2vw,44px);line-height:1}
+.work p{font-size:16px;line-height:1.6;color:var(--mut)}
+.work .go{margin-top:6px;font-size:15px;font-weight:400;color:var(--gold)}
 .phones{position:relative;display:flex;justify-content:center;align-items:flex-start;padding:0 0 clamp(20px,4vw,56px)}
 .ph{width:min(44%,260px);height:auto;display:block;border-radius:clamp(22px,3vw,34px);border:1px solid rgba(243,239,231,.14);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
 .ph.p1{position:relative;z-index:1;transform:translateY(clamp(28px,5vw,64px)) rotate(-2deg);margin-right:3%}
@@ -112,7 +124,7 @@ footer .brand img{height:28px}footer .brand span{letter-spacing:.12em}
       <svg viewBox="-24 18 360 94" width="132" height="34" style="display:block;overflow:visible" aria-hidden="true"><path d="M-1,38 C-10,38 -10,42 -10,54 C-10,63 -11.5,68 -19,68 C-11.5,68 -10,73 -10,82 C-10,94 -10,98 -1,98" fill="none" stroke="#C9A35E" stroke-width="3"/><g font-family="Italiana, serif" font-size="100" fill="#F8F6F1"><text x="0" y="100">B</text><text x="52" y="100">R</text><text x="106" y="100">I</text><text x="132" y="100">N</text><text x="244" y="100">A</text></g><path d="M193,31 L241,31 M190,99.3 L242,99.3" stroke="#F8F6F1" stroke-width="3"/><polygon points="228,32 233,32 194,99 189,99" fill="#C9A35E"/><polygon points="237,32 242,32 203,99 198,99" fill="#C9A35E"/><path d="M309,38 C318,38 318,42 318,54 C318,63 319.5,68 327,68 C319.5,68 318,73 318,82 C318,94 318,98 309,98" fill="none" stroke="#C9A35E" stroke-width="3"/></svg>
     </a>
     <div class="links">
-      <div class="menu"><a href="#productos" data-i18n="nav_products">Productos</a><a href="#soluciones" data-i18n="nav_solutions">Soluciones</a><a href="#nosotros" data-i18n="nav_about">Nosotros</a><a href="#contacto" data-i18n="nav_contact">Contacto</a></div>
+      <div class="menu"><a href="#productos" data-i18n="nav_products">Productos</a><a href="#trabajos" data-i18n="nav_work">Trabajos</a><a href="#soluciones" data-i18n="nav_solutions">Soluciones</a><a href="#nosotros" data-i18n="nav_about">Nosotros</a><a href="#contacto" data-i18n="nav_contact">Contacto</a></div>
       <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true">ES</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
       <a class="btn cta" href="#contacto" data-i18n="cta_talk">Hablemos</a>
     </div>
@@ -162,6 +174,23 @@ footer .brand img{height:28px}footer .brand span{letter-spacing:.12em}
   </article>
 </section>
 
+<section id="trabajos" class="wrap pad" style="padding-top:0">
+  <div class="head" data-reveal>
+    <div><div class="eyebrow" data-i18n="work_eyebrow">// TRABAJOS</div><h2 data-i18n="work_h2">Sitios que hemos creado</h2></div>
+    <p style="max-width:24em;font-size:17px;line-height:1.6;color:var(--dim)" data-i18n="work_sub">Diseño y desarrollo web a medida.</p>
+  </div>
+  <div class="works">
+    <a class="card work" href="https://escritossalas.brinzasolutions.com" target="_blank" rel="noopener" data-reveal>
+      <div class="shot"><img src="assets/work-escritossalas.webp" width="1200" height="750" alt="Darling Salas" loading="lazy"></div>
+      <div class="meta"><span class="tag" data-i18n="work1_tag">Sitio personal</span><h3>Darling Salas</h3><p data-i18n="work1_p">Sitio personal con diseño editorial, pensado para contar su historia.</p><span class="go"><span data-i18n="work_visit">Visitar sitio</span> →</span></div>
+    </a>
+    <a class="card work" href="https://landing.inkslate.lat" target="_blank" rel="noopener" data-reveal>
+      <div class="shot"><img src="assets/work-inkslate-landing.webp" width="1200" height="750" alt="InkSlate" loading="lazy"></div>
+      <div class="meta"><span class="tag" data-i18n="work2_tag">Landing de producto</span><h3>InkSlate</h3><p data-i18n="work2_p">Landing bilingüe para convertir visitas en negocios que prueban la app.</p><span class="go"><span data-i18n="work_visit">Visitar sitio</span> →</span></div>
+    </a>
+  </div>
+</section>
+
 <section id="soluciones" class="sol">
   <div class="wrap">
     <div class="l" data-reveal>
@@ -207,7 +236,7 @@ footer .brand img{height:28px}footer .brand span{letter-spacing:.12em}
 (function(){
   var EN={
     title:'Brinza Solutions — Technology that makes things simpler',
-    nav_products:'Products',nav_solutions:'Solutions',nav_about:'About',nav_contact:'Contact',cta_talk:"Let's talk",
+    nav_products:'Products',nav_work:'Work',nav_solutions:'Solutions',nav_about:'About',nav_contact:'Contact',cta_talk:"Let's talk",
     h1:'Technology that makes things simpler.',
     hero_p:'We design and build software, apps and digital solutions made to solve real problems and simplify the way people and businesses work.',
     hero_cta1:'Explore our products',mark_alt:'Brinza monogram',
@@ -219,6 +248,7 @@ footer .brand img{height:28px}footer .brand span{letter-spacing:.12em}
     as_small:'Download on the',as_aria:'Download InkSlate on the App Store',gp_small:'Get it on',gp_aria:'Get InkSlate on Google Play',
     ph1_alt:'InkSlate: booking confirmed, deposit pending, with booking code',
     ph2_alt:'InkSlate: booking summary with deposit status and activity',
+    work_eyebrow:'// WORK',work_h2:'Websites we have built',work_sub:'Custom web design and development.',work1_tag:'Personal site',work1_p:'Personal site with an editorial design, made to tell her story.',work2_tag:'Product landing',work2_p:'Bilingual landing page built to turn visitors into businesses trying the app.',work_visit:'Visit site',
     sol_eyebrow:'// CUSTOM SOLUTIONS',sol_h2:'Need something different?',
     sol_p:"Not every problem can be solved with existing software. We analyze your need and build a digital solution tailored to your process.",
     sol_cta:'Tell us your idea <span>→</span>',
